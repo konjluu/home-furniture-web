@@ -8,7 +8,7 @@ export default class LivingRoom{
 
     $productItem;
 
-    constructor(_srcImg,_title,_price){
+    constructor(_srcImg,_title,_price,_id){
         this.$productItem=document.createElement("div");
         this.$productItem.setAttribute(
             "class",
@@ -24,6 +24,7 @@ export default class LivingRoom{
 
         this.$urlImg=document.createElement("img");
         this.$urlImg.src=_srcImg;
+        this.$urlImg.id=_id;
         this.$urlImg.setAttribute("class", "w-64 h-64 object-cover hover:scale-110 duration-300");
         this.$urlImg.addEventListener("click",this.handleIntroProduct);
 
@@ -48,7 +49,6 @@ export default class LivingRoom{
 
     handleIntroProduct=(()=>{
         app.handleClickProduct();
-        console.log("click");
     })
 
     // handleSubmit=(()=>{

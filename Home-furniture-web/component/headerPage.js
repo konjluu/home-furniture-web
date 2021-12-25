@@ -26,7 +26,7 @@ export default class Header{
         this.$menu=document.createElement("h5");
         this.$menu.textContent="Trang chủ";
 
-        this.$livingRoom=document.createElement("h5");
+        this.$livingRoom=document.createElement("button");
         this.$livingRoom.textContent="Phòng khách";
         this.$livingRoom.addEventListener("click",this.backToLivingroom);
 

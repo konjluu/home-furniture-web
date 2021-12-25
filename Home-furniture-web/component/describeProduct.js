@@ -2,6 +2,7 @@
 import ImgProduct from "./describleComponent/imgProduct.js"
 import InformationProduct from "./describleComponent/informationProduct.js"
 import DetailedDescription from "./describleComponent/detailedDescription.js"
+import {imgDescribe} from "./imgDescribe.js"
 
 export default class DescribeProduct{
     $DescribeContainer;
@@ -37,7 +38,7 @@ export default class DescribeProduct{
         const productAdded=document.createElement("p");
         productAdded.textContent="Bàn ăn gia đình đã được thêm vào giỏ hàng";
 
-        const viewCart=document.createElement("submit");
+        const viewCart=document.createElement("button");
         viewCart.textContent="Xem giỏ hàng";
         viewCart.setAttribute(
             "class",
@@ -63,11 +64,11 @@ export default class DescribeProduct{
         // this.$Notification.appendChild(this.$productAdded);
         // this.$Notification.appendChild(this.$viewCart);
 
-        const pic1= new ImgProduct("./IMG/item1/1.jpeg");
-        const pic2= new ImgProduct("./IMG/item1/2.jpeg");
-        const pic3= new ImgProduct("./IMG/item1/3.jpeg");
-        const pic4= new ImgProduct("./IMG/item1/4.jpeg");
-        const pic5= new ImgProduct("./IMG/item1/5.jpeg");
+        const pic1= new ImgProduct(imgDescribe.picItem1[0]);
+        const pic2= new ImgProduct(imgDescribe.picItem1[1]);
+        const pic3= new ImgProduct(imgDescribe.picItem1[2]);
+        const pic4= new ImgProduct(imgDescribe.picItem1[3]);
+        const pic5= new ImgProduct(imgDescribe.picItem1[4]);
         pic1.render(this.$imgProduct);
         pic2.render(this.$imgProduct);
         pic3.render(this.$imgProduct);
