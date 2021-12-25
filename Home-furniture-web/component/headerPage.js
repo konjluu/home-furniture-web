@@ -1,4 +1,4 @@
-
+import app from "../index.js"
 export default class Header{
     $headerContainer;
 
@@ -28,6 +28,7 @@ export default class Header{
 
         this.$livingRoom=document.createElement("h5");
         this.$livingRoom.textContent="Phòng khách";
+        this.$livingRoom.addEventListener("click",this.backToLivingroom);
 
         this.$bedRoom=document.createElement("h5");
         this.$bedRoom.textContent="Phòng ngủ";
@@ -37,9 +38,12 @@ export default class Header{
 
         this.$contact=document.createElement("h5");
         this.$contact.textContent="Liên hệ";
-
-        
     }
+
+    backToLivingroom=(()=>{
+        console.log("123");
+        app.backToLivingroom();
+    })
 
     render(container){
         this.$topMenu.appendChild(this.$logoWeb);

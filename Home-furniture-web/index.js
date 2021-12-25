@@ -3,6 +3,8 @@ import TitleAddressRoom from "./component/titleAddressRoom.js";
 import LivingRoom from "./component/livingRoom.js";
 import IntroProduct from "./component/introduceProduct.js";
 import Footer from "./component/footerPage.js";
+import ViewCart from "./component/viewCart.js";
+
 
 class APP{
   appContainer;
@@ -13,8 +15,10 @@ class APP{
   foot;
   
   introProduct;
-  middleScreen;           //total :listProdct or introduceProduct
+  middleScreen;           //total :listProdct or introduceProduct or viewCart
   titleAndMiddleScreen;   //total :addresd and middleScreen
+
+  viewCart;
 
   constructor(){
     this.appContainer=document.createElement("div");
@@ -25,7 +29,9 @@ class APP{
     this.livingRoom= document.createElement("div");
     this.livingRoom.setAttribute('class', "grid grid-cols-4");
 
-    this.introProduct=new IntroProduct();
+    this.introProduct=new IntroProduct(()=>{
+      this.handleClickViewCart()
+    });
     this.middleScreen=document.createElement("div");
 
     this.titleAndMiddleScreen=document.createElement("div");
@@ -33,12 +39,26 @@ class APP{
         "class",
         "w-2/3 flex flex-col justify-center items-center m-auto mb-15 mx-auto"
       );
+    
+    this.viewCart=new ViewCart();
+
+  }
+
+  handleClickViewCart(){
+    this.middleScreen.innerHTML ="";
+    this.viewCart.render(this.middleScreen);
+
   }
   
   handleClickProduct(){
     this.middleScreen.innerHTML ="";
     this.introProduct.render(this.middleScreen);
-    // console.log("abc");
+
+  }
+
+  backToLivingroom(){
+    this.middleScreen.innerHTML ="";
+    this.middleScreen.appendChild(this.livingRoom);
   }
 
   render(container){

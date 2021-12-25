@@ -1,3 +1,4 @@
+//giới thiệu sản phẩm ->sau khi click vào sản phẩm bất kì trong list sản phẩm (ở phần Living Room) 
 import DescribeProduct from "./describeProduct.js";
 export default class IntroProduct{
     $introContainer;
@@ -5,12 +6,20 @@ export default class IntroProduct{
     $describe;
     $suggest;
 
-    constructor(){
+    _handleClickViewCart;
+    constructor(handleClickViewCart){
+        this._handleClickViewCart=handleClickViewCart;
+
         this.$introContainer=document.createElement("div");
 
-    
-        this.$describe=new DescribeProduct()
+        this.$describe=new DescribeProduct(()=>{
+            this.functionViewCart()
+        })
         this.$suggest=document.createElement("div");
+    }
+
+    functionViewCart(){
+        this._handleClickViewCart();
     }
 
     render(container){

@@ -19,7 +19,7 @@ export default class LivingRoom{
         this.$saleButton.textContent="Giảm Giá";
         this.$saleButton.setAttribute(
             "class",
-            "bg-red-700 hover:shadow-lg text-white font-bold mt-5 py-1 px-3 rounded"
+            "bg-red-700 hover:shadow-lg text-white font-bold mt-5 py-1 px-3 rounded-full"
         );
 
         this.$urlImg=document.createElement("img");
