@@ -7,14 +7,17 @@ export default class IntroProduct{
     $suggest;
 
     _handleClickViewCart;
-    constructor(handleClickViewCart){
+    _id;
+    constructor(handleClickViewCart,id){
+        this._id=id;
+        
         this._handleClickViewCart=handleClickViewCart;
 
         this.$introContainer=document.createElement("div");
 
         this.$describe=new DescribeProduct(()=>{
             this.functionViewCart()
-        })
+        },this._id);
         this.$suggest=document.createElement("div");
     }
 

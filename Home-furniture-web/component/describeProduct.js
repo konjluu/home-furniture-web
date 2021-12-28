@@ -2,7 +2,7 @@
 import ImgProduct from "./describleComponent/imgProduct.js"
 import InformationProduct from "./describleComponent/informationProduct.js"
 import DetailedDescription from "./describleComponent/detailedDescription.js"
-import {imgDescribe} from "./imgDescribe.js"
+import {imgDescribe} from "./API.js"
 
 export default class DescribeProduct{
     $DescribeContainer;
@@ -15,8 +15,11 @@ export default class DescribeProduct{
     $informationProduct;
     $detailedDescription;
 
-    _functionViewCart
-    constructor(functionViewCart){
+    _functionViewCart;
+    _id;
+    constructor(functionViewCart,id){
+        this._id=id;
+        
         this._functionViewCart=functionViewCart;
         this.$DescribeContainer=document.createElement("div");
         this._Notification=document.createElement("div");
@@ -30,8 +33,8 @@ export default class DescribeProduct{
     }
 
     viewCart=(()=>{
-        console.log("viewCart")
         this._functionViewCart();
+        // console.log(this._id,"idddd");
     })
 
     appendNotification(){
@@ -61,14 +64,13 @@ export default class DescribeProduct{
     }
 
     render(container){
-        // this.$Notification.appendChild(this.$productAdded);
-        // this.$Notification.appendChild(this.$viewCart);
-
-        const pic1= new ImgProduct(imgDescribe.picItem1[0]);
-        const pic2= new ImgProduct(imgDescribe.picItem1[1]);
-        const pic3= new ImgProduct(imgDescribe.picItem1[2]);
-        const pic4= new ImgProduct(imgDescribe.picItem1[3]);
-        const pic5= new ImgProduct(imgDescribe.picItem1[4]);
+        const picItemTemp=`picItem${this._id}`;
+        const picItem=picItemTemp.split.join("");
+        const pic1= new ImgProduct(imgDescribe.picItem[0]);
+        const pic2= new ImgProduct();
+        const pic3= new ImgProduct();
+        const pic4= new ImgProduct();
+        const pic5= new ImgProduct();
         pic1.render(this.$imgProduct);
         pic2.render(this.$imgProduct);
         pic3.render(this.$imgProduct);
