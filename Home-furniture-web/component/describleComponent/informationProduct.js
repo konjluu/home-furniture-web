@@ -46,7 +46,8 @@ export default class InformationProduct{
 
         this.quantily=document.createElement("input");
         this.quantily.type="number";
-        this.quantily.min=0;
+        this.quantily.value=1;
+        this.quantily.min=1;
         this.quantily.setAttribute(
             "class",
             "border border-gray-500");
@@ -62,7 +63,7 @@ export default class InformationProduct{
 
     }
 
-    onClickButtonBuy=(()=>{
+    onClickButtonBuy=((e)=>{
         if(this.quantily.value==0){
             alert("Vui long nhap so luong mua");
         }

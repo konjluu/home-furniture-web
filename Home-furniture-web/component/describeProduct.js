@@ -34,7 +34,6 @@ export default class DescribeProduct{
 
     viewCart=(()=>{
         this._functionViewCart();
-        // console.log(this._id,"idddd");
     })
 
     appendNotification(){
@@ -65,17 +64,25 @@ export default class DescribeProduct{
 
     render(container){
         const picItemTemp=`picItem${this._id}`;
-        const picItem=picItemTemp.split.join("");
-        const pic1= new ImgProduct(imgDescribe.picItem[0]);
-        const pic2= new ImgProduct();
-        const pic3= new ImgProduct();
-        const pic4= new ImgProduct();
-        const pic5= new ImgProduct();
-        pic1.render(this.$imgProduct);
-        pic2.render(this.$imgProduct);
-        pic3.render(this.$imgProduct);
-        pic4.render(this.$imgProduct);
-        pic5.render(this.$imgProduct);
+        console.log(picItemTemp,"des")
+        const imgs=imgDescribe[picItemTemp];
+        console.log(imgs);
+        imgs.forEach(img=>{
+            const pic= new ImgProduct(img);
+            pic.render(this.$imgProduct);
+        })
+
+        // const picItem=picItemTemp.split.join("");
+        // const pic1= new ImgProduct(imgDescribe.picItem[0]);
+        // const pic2= new ImgProduct(imgDescribe.picItem[1]);
+        // const pic3= new ImgProduct(imgDescribe.picItem[2]);
+        // const pic4= new ImgProduct(imgDescribe.picItem[3]);
+        // const pic5= new ImgProduct(imgDescribe.picItem[4]);
+        // pic1.render(this.$imgProduct);
+        // pic2.render(this.$imgProduct);
+        // pic3.render(this.$imgProduct);
+        // pic4.render(this.$imgProduct);
+        // pic5.render(this.$imgProduct);
 
         this.$DescribeContainer.appendChild(this._Notification);
         this.$DescribeContainer.appendChild(this.$imgProduct);

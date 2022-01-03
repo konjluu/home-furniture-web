@@ -9,6 +9,7 @@ export default class IntroProduct{
     _handleClickViewCart;
     _id;
     constructor(handleClickViewCart,id){
+        console.log("introProduct",id)
         this._id=id;
         
         this._handleClickViewCart=handleClickViewCart;

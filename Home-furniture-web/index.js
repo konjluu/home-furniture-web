@@ -14,12 +14,11 @@ class APP{
   $livingRoom;
   $foot;
   
-  $introProduct;
   $middleScreen;           //total :listProdct or introduceProduct or viewCart
   $titleAndMiddleScreen;   //total :addresd and middleScreen
 
+  $introProduct;
   $viewCart;
-
   $id;
   constructor(){
     this.$appContainer=document.createElement("div");
@@ -38,74 +37,65 @@ class APP{
       "w-2/3 flex flex-col justify-center items-center m-auto mb-15 mx-auto"
       );
       
-      this.$viewCart=new ViewCart();
+    this.items= livingRoom.map(room=>new LivingRoom(room,this.handleClickProduct));
 
-      this._item1= new LivingRoom("./IMG/item1/1.jpeg",
-                              "Bàn ăn gia đình",
-                              "2,799,000.00",1,this.handleClickProduct());
-      this._item2= new LivingRoom('./IMG/item2/1.jpeg',
-                            "Bàn ăn chung cư",
-                              "2,799,000.00",2,this.handleClickProduct());
-      this._item3= new LivingRoom('./IMG/item3/1.jpeg',
-                              "Bàn khách gia đình",
-                              "2,799,000.00",3,this.handleClickProduct());
-      this._item4= new LivingRoom('./IMG/item4/1.jpeg',
-                              "Bàn trang điểm",
-                              "2,799,000.00",4,this.handleClickProduct());
-      this._item5= new LivingRoom('./IMG/item5/1.jpeg',
-                              "Đồ gia dụng gia đình",
-                              "2,799,000.00",5,this.handleClickProduct());
-      this._item6= new LivingRoom('./IMG/item6/1.jpeg',
-                              "Ghế Sofa phòng khách",
-                              "2,799,000.00",6,this.handleClickProduct());
-      this._item7= new LivingRoom('./IMG/item7/1.jpeg',
-                              "Nhà vệ sinh",
-                              "2,799,000.00",7,this.handleClickProduct());
-      this._item8= new LivingRoom('./IMG/item8/1.jpeg',
-                              "Nội thất văn phòng 01",
-                              "2,799,000.00",8,this.handleClickProduct());
-      // this._item=[this._item1,this._item2,this._item3,this._item4,this._item5,this._item6,this._item7,this._item8]
+    console.log(this.items,"abc")
+      // this._item1= new LivingRoom("./IMG/item1/1.jpeg",
+      // "Bàn ăn gia đình",
+      // "2,799,000.00",1,this.handleClickProduct);
+      // this._item2= new LivingRoom('./IMG/item2/1.jpeg',
+      // "Bàn ăn chung cư",
+      // "2,799,000.00",2,this.handleClickProduct);
+      // this._item3= new LivingRoom('./IMG/item3/1.jpeg',
+      // "Bàn khách gia đình",
+      // "2,799,000.00",3,this.handleClickProduct);
+      // this._item4= new LivingRoom('./IMG/item4/1.jpeg',
+      // "Bàn trang điểm",
+      // "2,799,000.00",4,this.handleClickProduct);
+      // this._item5= new LivingRoom('./IMG/item5/1.jpeg',
+      // "Đồ gia dụng gia đình",
+      // "2,799,000.00",5,this.handleClickProduct);
+      // this._item6= new LivingRoom('./IMG/item6/1.jpeg',
+      // "Ghế Sofa phòng khách",
+      // "2,799,000.00",6,this.handleClickProduct);
+      // this._item7= new LivingRoom('./IMG/item7/1.jpeg',
+      // "Nhà vệ sinh",
+      // "2,799,000.00",7,this.handleClickProduct);
+      // this._item8= new LivingRoom('./IMG/item8/1.jpeg',
+      // "Nội thất văn phòng 01",
+      // "2,799,000.00",8,this.handleClickProduct);
+
       this.$id=0;
+      this.$viewCart=new ViewCart();
+    }
 
-      this.introProduct=new IntroProduct(()=>{
-        this.handleClickViewCart()
-      },_id);
-  }
-
-  handleClickViewCart(){
+  handleClickViewCart=()=>{
     this.$middleScreen.innerHTML ="";
     this.$viewCart.render(this.$middleScreen);
-
   }
   
-  handleClickProduct(_id){
+  handleClickProduct=(_id)=>{
+    this.$introProduct=new IntroProduct(this.handleClickViewCart,_id)
     this.$middleScreen.innerHTML ="";
-    this.introProduct.render(this.$middleScreen);
-
-    // this.$id=_id;
-
-    // this.$appContainer.childNodes[1].innerHTML =introProduct.render(this.$middleScreen);
-    // console.log(this.$appContainer.childNodes,"app");
+    this.$introProduct.render(this.$middleScreen);
   }
 
-  backToLivingroom(){
+  backToLivingroom=()=>{
     this.$middleScreen.innerHTML ="";
     this.$middleScreen.appendChild(this.$livingRoom);
   }
 
-
   render(container){
-    
     this.$head.render(this.$appContainer);
-    
-    this._item1.render(this.$livingRoom);
-    this._item2.render(this.$livingRoom);
-    this._item3.render(this.$livingRoom);
-    this._item4.render(this.$livingRoom);
-    this._item5.render(this.$livingRoom);
-    this._item6.render(this.$livingRoom);
-    this._item7.render(this.$livingRoom);
-    this._item8.render(this.$livingRoom);
+    this.items.forEach(room=>room.render(this.$livingRoom));
+    // this._item1.render(this.$livingRoom);
+    // this._item2.render(this.$livingRoom);
+    // this._item3.render(this.$livingRoom);
+    // this._item4.render(this.$livingRoom);
+    // this._item5.render(this.$livingRoom);
+    // this._item6.render(this.$livingRoom);
+    // this._item7.render(this.$livingRoom);
+    // this._item8.render(this.$livingRoom);
     this.$middleScreen.appendChild(this.$livingRoom);
 
     this.$titleAddress.render(this.$titleAndMiddleScreen);
