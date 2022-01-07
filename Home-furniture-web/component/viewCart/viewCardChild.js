@@ -17,9 +17,11 @@ export default class ViewCardChild{
 
     _getInputValue
     _id
-    constructor(getInputValue,id) {
+    _name
+    constructor(getInputValue,id,name) {
         this._getInputValue=getInputValue
         this._id=id
+        this._name=name;
         this.$viewCardChildContainer=document.createElement("div");
 
 
@@ -38,7 +40,7 @@ export default class ViewCardChild{
         this.$total.textContent="Tổng";
 
 
-        this.$informationOfPurchasedProduct=new InformationOfPurchasedProduct(this._getInputValue,this._id);
+        this.$informationOfPurchasedProduct=new InformationOfPurchasedProduct(this._getInputValue,this._id,this._name);
 
         this.$updateViewCart=document.createElement("div");
 

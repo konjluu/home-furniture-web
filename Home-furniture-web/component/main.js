@@ -92,7 +92,7 @@ export default class Main{
   handleClickViewCart=(quantily)=>{
     // console.log(quantily,"quantily");
     // console.log(this.$id,"$id");
-    const viewCart=new ViewCart(quantily,this.$id);  
+    const viewCart=new ViewCart(quantily,this.id,this.name);  
     this.$middleScreen.innerHTML ="";
     viewCart.render(this.$middleScreen);
 
@@ -100,10 +100,11 @@ export default class Main{
   }
   
   handleClickProduct=(_id)=>{
-    this.$id=_id;
+    this.id=_id;
     this.$introProduct=new IntroProduct(this.handleClickViewCart,_id)
     this.$middleScreen.innerHTML ="";
     const _titleAddressRoom=titleAddressRoom[_id-1].name
+    this.name=_titleAddressRoom;
     this.$titleAddress=new TitleAddressRoom(_titleAddressRoom); 
     this.$titleAddress.render(this.$middleScreen);
     this.$introProduct.render(this.$middleScreen);
