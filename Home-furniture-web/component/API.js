@@ -245,5 +245,229 @@ export const imgDescribe={
         "./IMG/item8/3.jpeg",
         "./IMG/item8/4.jpeg",
         "./IMG/item8/5.jpeg"
+    ],
+    picItem9:[
+        "./IMG/item1/1.jpeg",
+        "./IMG/item1/2.jpeg",
+        "./IMG/item1/3.jpeg",
+        "./IMG/item1/4.jpeg",
+        "./IMG/item1/5.jpeg"
+    ],
+    picItem10:[
+        "./IMG/item2/1.jpeg",
+        "./IMG/item2/2.jpeg",
+        "./IMG/item2/3.jpeg",
+        "./IMG/item2/4.jpeg",
+        "./IMG/item2/5.jpeg"
+    ],
+    picItem11:[
+        "./IMG/item3/1.jpeg",
+        "./IMG/item3/2.jpeg",
+        "./IMG/item3/3.jpeg",
+        "./IMG/item3/4.jpeg",
+        "./IMG/item3/5.jpeg"
+    ],
+    picItem12:[
+        "./IMG/item4/1.jpeg",
+        "./IMG/item4/2.jpeg",
+        "./IMG/item4/3.jpeg",
+        "./IMG/item4/4.jpeg",
+        "./IMG/item4/5.jpeg"
+    ],
+    picItem13:[
+        "./IMG/item5/1.jpeg",
+        "./IMG/item5/2.jpeg",
+        "./IMG/item5/3.jpeg",
+        "./IMG/item5/4.jpeg",
+        "./IMG/item5/5.jpeg"
+    ],
+    picItem14:[
+        "./IMG/item6/1.jpeg",
+        "./IMG/item6/2.jpeg",
+        "./IMG/item6/3.jpeg",
+        "./IMG/item6/4.jpeg",
+        "./IMG/item6/5.jpeg"
+    ],
+    picItem15:[
+        "./IMG/item7/1.jpeg",
+        "./IMG/item7/2.jpeg",
+        "./IMG/item7/3.jpeg",
+        "./IMG/item7/4.jpeg",
+        "./IMG/item7/5.jpeg"
+    ],
+    picItem16:[
+        "./IMG/item8/1.jpeg",
+        "./IMG/item8/2.jpeg",
+        "./IMG/item8/3.jpeg",
+        "./IMG/item8/4.jpeg",
+        "./IMG/item8/5.jpeg"
+    ],picItem17:[
+        "./IMG/item1/1.jpeg",
+        "./IMG/item1/2.jpeg",
+        "./IMG/item1/3.jpeg",
+        "./IMG/item1/4.jpeg",
+        "./IMG/item1/5.jpeg"
+    ],
+    picItem18:[
+        "./IMG/item2/1.jpeg",
+        "./IMG/item2/2.jpeg",
+        "./IMG/item2/3.jpeg",
+        "./IMG/item2/4.jpeg",
+        "./IMG/item2/5.jpeg"
+    ],
+    picItem19:[
+        "./IMG/item3/1.jpeg",
+        "./IMG/item3/2.jpeg",
+        "./IMG/item3/3.jpeg",
+        "./IMG/item3/4.jpeg",
+        "./IMG/item3/5.jpeg"
+    ],
+    picItem20:[
+        "./IMG/item4/1.jpeg",
+        "./IMG/item4/2.jpeg",
+        "./IMG/item4/3.jpeg",
+        "./IMG/item4/4.jpeg",
+        "./IMG/item4/5.jpeg"
+    ],
+    picItem21:[
+        "./IMG/item5/1.jpeg",
+        "./IMG/item5/2.jpeg",
+        "./IMG/item5/3.jpeg",
+        "./IMG/item5/4.jpeg",
+        "./IMG/item5/5.jpeg"
+    ],
+    picItem22:[
+        "./IMG/item6/1.jpeg",
+        "./IMG/item6/2.jpeg",
+        "./IMG/item6/3.jpeg",
+        "./IMG/item6/4.jpeg",
+        "./IMG/item6/5.jpeg"
+    ],
+    picItem23:[
+        "./IMG/item7/1.jpeg",
+        "./IMG/item7/2.jpeg",
+        "./IMG/item7/3.jpeg",
+        "./IMG/item7/4.jpeg",
+        "./IMG/item7/5.jpeg"
     ]
 } 
+
+export const suggest=[
+    {
+        img: "./IMG/item13/1.jpeg",
+        name: "Ghế sofa phòng khách",
+        price: "2,500,000.00đ",
+        id:14
+    },
+    {
+        img: "./IMG/item14/1.jpeg",
+        name: "Nhà vệ sinh",
+        price: "2,500,000.00đ",
+        id:15
+    },
+    {
+        img: "./IMG/item15/1.jpeg",
+        name: "Nội thất văn phòng 01",
+        price: "2,500,000.00đ",
+        id:16
+    },
+]
+
+
+
+export const titleAddressRoom = [
+    {
+        name: "Bàn ăn gia đình",
+        id:1
+    },
+    {
+        name: "Bàn khách chung cư",
+        id:2
+    },
+    {
+        name: "Bàn khách gia đình",
+        id:3,
+    },
+    {
+        name: "Bàn trang điểm",
+        id:4,
+    },
+    {
+        name: "Đồ gia dụng cho gia đình",
+        id:5,
+    },
+    {
+        name: "Ghế sofa phòng khách",
+        id:6
+    },
+    {
+        name: "Nhà vệ sinh",
+        id:7
+    },
+    {
+        name: "Nội thất văn phòng 01",
+        id:8
+    },
+
+    {
+        name: "Bàn ăn gia đình",
+        id:9
+    },
+    {
+        name: "Bàn khách chung cư",
+        id:10
+    },
+    {
+        name: "Bàn khách gia đình",
+        id:11,
+    },
+    {
+        name: "Bàn trang điểm",
+        id:12,
+    },
+    {
+        name: "Đồ gia dụng cho gia đình",
+        id:13,
+    },
+    {
+        name: "Ghế sofa phòng khách",
+        id:14
+    },
+    {
+        name: "Nhà vệ sinh",
+        id:15
+    },
+    {
+        name: "Nội thất văn phòng 01",
+        id:16
+    },
+
+    {
+        name: "Bàn ăn gia đình",
+        id:17
+    },
+    {
+        name: "Bàn khách chung cư",
+        id:18
+    },
+    {
+        name: "Bàn khách gia đình",
+        id:19,
+    },
+    {
+        name: "Bàn trang điểm",
+        id:20,
+    },
+    {
+        name: "Đồ gia dụng cho gia đình",
+        id:21,
+    },
+    {
+        name: "Ghế sofa phòng khách",
+        id:22,
+    },
+    {
+        name: "Nhà vệ sinh",
+        id:23,
+    }
+]

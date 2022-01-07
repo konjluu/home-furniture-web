@@ -25,7 +25,7 @@ export default class InformationProduct{
         this.inforList=document.createElement("div");
 
         this.price=document.createElement("p");
-        this.price.textContent="2,799,000.00"
+        this.price.textContent="2,500,000.00"
 
         this.cardLi=document.createElement("ul");
 

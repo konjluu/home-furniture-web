@@ -29,7 +29,7 @@ export default class InformationOfPurchasedProduct {
         // );
 
         this.nameProduct = document.createElement("p");
-        this.nameProduct.textContent = "Ban an gia dinh"
+        this.nameProduct.textContent = "Bàn ăn gia đình";
 
         this.cost = document.createElement("p");
         this.cost.textContent = "2500000";

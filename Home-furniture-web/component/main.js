@@ -4,12 +4,9 @@ import Room from "./Room.js";
 import IntroProduct from "./introduceProduct.js";
 import Footer from "./footerPage.js";
 import ViewCart from "./viewCartContainer.js";
-import {livingRoom} from "./API.js";
-import {diningroom} from "./API.js";
-import {bedroom} from "./API.js";
+import {livingRoom,diningroom,bedroom,titleAddressRoom} from "./API.js";
 import HomePage from "./Home.js";
 import CartModal from "./CartModal.js";
-import InputQuantily from "../component/InputQuantily.js";
 
 export default class Main{
 
@@ -20,7 +17,7 @@ export default class Main{
   $room;
   $foot;
   
-  $middleScreen;           //total :listProdct or introduceProduct or viewCart
+  $middleScreen;           //total :(listProdct or introduceProduct or viewCart) and titleAddress
  
   $introProduct;
   $viewCart;
@@ -47,11 +44,6 @@ export default class Main{
     this.$id=0;
     this.$home=new HomePage();
     }
-
-  // getInputValue=(()=> {
-  //   const quantily=new InputQuantily();
-  //   return quantily.getValueInputQuantily;
-  // })
 
   onHomeClick = (e) => {
     e.preventDefault();
@@ -104,6 +96,9 @@ export default class Main{
   handleClickProduct=(_id)=>{
     this.$introProduct=new IntroProduct(this.handleClickViewCart,_id)
     this.$middleScreen.innerHTML ="";
+    const _titleAddressRoom=titleAddressRoom[_id-1].name
+    this.$titleAddress=new TitleAddressRoom(_titleAddressRoom); 
+    this.$titleAddress.render(this.$middleScreen);
     this.$introProduct.render(this.$middleScreen);
   }
 
