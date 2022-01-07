@@ -1,4 +1,5 @@
-export default class InformationOfPurchasedProduct{
+// import InputQuantily from "../InputQuantily.js";
+export default class InformationOfPurchasedProduct {
     informationOfPurchasedProduct_Container;
 
     itemDeleteButton;
@@ -8,41 +9,47 @@ export default class InformationOfPurchasedProduct{
     quantily;
     total;
 
-    constructor(){
-        this.informationOfPurchasedProduct_Container=document.createElement("div");
-        
-        this.itemDeleteButton=document.createElement("button");
-        
-        this.illustration=document.createElement("img");
+    _getInputValue;
+    constructor(getInputValue) {
+        this._getInputValue = getInputValue;
+
+        this.informationOfPurchasedProduct_Container = document.createElement("div");
+
+        this.itemDeleteButton = document.createElement("button");
+
+        this.illustration = document.createElement("img");
         this.illustration.src = "./IMG/item1/1.jpeg";
         this.illustration.id = 1;
         this.illustration.setAttribute(
-          "class",
-          "w-10 h-10 object-cover hover:scale-110 duration-300"
+            "class",
+            "w-10 h-10 object-cover hover:scale-110 duration-300"
         );
         // this.illustration.addEventListener("click", () =>
         //   _handleClickProduct(this.illustration.id)
         // );
 
-        this.nameProduct=document.createElement("p");
-        this.nameProduct.textContent="Ban an gia dinh"
+        this.nameProduct = document.createElement("p");
+        this.nameProduct.textContent = "Ban an gia dinh"
 
-        this.cost=document.createElement("p"); 
-        this.cost.textContent="2500000"
-        this.cost.value=2500000
-        
-        this.quantily=document.createElement("input");
-        this.quantily.type="number";
-        this.quantily.min=0;
+        this.cost = document.createElement("p");
+        this.cost.textContent = "2500000";
+        this.cost.value = 2500000;
+
+        this.quantily = document.createElement("input");
+        this.quantily.type = "number";
+        this.quantily.value = this._getInputValue();
+        console.log(this._getInputValue,"getvalue");
+
+        this.quantily.min = 1;
         this.quantily.setAttribute(
             "class",
             "border border-gray-500");
-            
-        this.total=document.createElement("p");
+
+        this.total = document.createElement("p");
 
     }
 
-    render(container){
+    render(container) {
         this.informationOfPurchasedProduct_Container.appendChild(this.itemDeleteButton);
         this.informationOfPurchasedProduct_Container.appendChild(this.illustration);
         this.informationOfPurchasedProduct_Container.appendChild(this.nameProduct);

@@ -1,5 +1,5 @@
 
-export default class LivingRoom {
+export default class Room {
   $urlImg;
   $saleButton;
   $titleProduct;
@@ -7,7 +7,7 @@ export default class LivingRoom {
   $buttonBuy;
 
   $productItem;
-  constructor(room, _handleClickProduct) {
+  constructor(room, _handleClickProduct,) {
     this.$productItem = document.createElement("div");
     this.$productItem.setAttribute(
       "class",
@@ -48,6 +48,15 @@ export default class LivingRoom {
     );
     // this.$buttonBuy.addEventListener("submit",this.handleSubmit)
   }
+
+  // setActiveScreen=(screen)=>{
+  //   if (this.$productItem!== undefined){
+  //     this.$productItem.innerHTML="";
+  //   }
+  //   else{
+  //     this.$productItem=screen;
+  //   }
+  // }
 
   // handleSubmit=(()=>{
 

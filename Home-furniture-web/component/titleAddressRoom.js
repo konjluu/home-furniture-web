@@ -1,10 +1,10 @@
 export default class TitleAddressRoom{
     $titleAddress;
 
-    constructor(){
-        this.$titleAddress=document.createElement("h1");
-        this.$titleAddress.textContent="Phòng ngủ";
-        this.$titleAddress.setAttribute("class","text-4xl text-slate-500")
+    constructor(title){
+        this.$titleAddress=document.createElement("p");
+        this.$titleAddress.textContent=title;
+        this.$titleAddress.setAttribute("class", "mt-8 mb-12 ml-2 text-3xl text-gray-400")
     }
 
     render(container){

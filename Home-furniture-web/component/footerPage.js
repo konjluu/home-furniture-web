@@ -1,45 +1,72 @@
-export default class Footer{
-    $footContainer;
+export default class Footer {
+    $mainContainer;
+    $container;
+    $introContainer;
+    $introTitleEl;
+    $introContentEl;
+    $contactsContainer;
+    $contactTitleEl;
+    $addressEl;
+    $phoneEl;
+    $emailEl;
+    $copyrightEl;
 
-    $intro;
-    $contact;
-    $creator;
+    constructor() {
+        this.$mainContainer = document.createElement("div");
+        this.$mainContainer.setAttribute("class", "w-screen bg-gray-800 flex flex-col items-center mt-4");
 
-    constructor(){
-        this.$footContainer=document.createElement("div");
-        this.$footContainer.setAttribute("class","bg-cover bg-gray-800 flex flex-row")
+        this.$container = document.createElement("div");
+        this.$container.setAttribute("class", "w-1/2 flex justify-between mt-2")
 
-        this.$intro=document.createElement("div");
+        this.$introContainer = document.createElement("div");
+        this.$introContainer.setAttribute("class", "w-1/2")
 
-        this.$contact=document.createElement("div");
-        // this.$creator=document.createElement("p");
+        this.$introTitleEl = document.createElement("p");
+        this.$introTitleEl.textContent = "Giới thiệu";
+        this.$introTitleEl.setAttribute("class", "text-white font-bold text-xs");
 
+        this.$introContentEl = document.createElement("p");
+        this.$introContentEl.textContent = "F4 Company chuyên thiết kế - thi công nội thất đa phong cách cho các dự án biệt thự, căn hộ, nhà phố, khách sạn, văn phòng công ty… Với đội ngũ thiết kế sáng tạo, nhiệt huyết và thi công chuyên nghiệp, nhiều kinh nghiệm, F4 Company tự tin mang đến cho quý khách hàng những dự án kiến trúc - nội thất sang trọng, độc đáo, bền vững và đặc biệt với mức giá vô cùng cạnh tranh.";
+        this.$introContentEl.setAttribute("class", "text-white mt-4 text-xs");
+
+        this.$contactsContainer = document.createElement("div");
+
+        this.$contactTitleEl = document.createElement("p");
+        this.$contactTitleEl.textContent = "Liên hệ";
+        this.$contactTitleEl.setAttribute("class", "text-white font-bold text-xs");
+
+        this.$addressEl = document.createElement("p");
+        this.$addressEl.innerHTML = '<i class="fas fa-map-marker-alt"> Số 123 Đường Phan Chu Trinh, Quận 10, TP.HCM</i>';
+        this.$addressEl.setAttribute("class", "text-white mt-4 text-xs");
+
+        this.$phoneEl = document.createElement("p");
+        this.$phoneEl.innerHTML = '<i class="fas fa-phone-volume"> 0123.456.789</i>';
+        this.$phoneEl.setAttribute("class", "text-white text-xs");
+
+        this.$emailEl = document.createElement("p");
+        this.$emailEl.innerHTML = '<i class="fas fa-envelope"> contact@demo.com</i>';
+        this.$emailEl.setAttribute("class", "text-white text-xs");
+
+        this.$copyrightEl = document.createElement("p");
+        this.$copyrightEl.textContent = "Copyright © 2021 F4 Company.";
+        this.$copyrightEl.setAttribute("class", "text-white mt-4 text-xs mb-2");
     }
 
-    render(container){
-        const titleIntro=document.createElement("h4");
-        titleIntro.textContent="Gioi thieu";
-        titleIntro.setAttribute("class","font-bold text-white")
-        const contentIntro=document.createElement("p");
-        contentIntro.textContent="NT11 Company chuyên thiết kế - thi công nội thất đa phong cách cho các dự án biệt thự, căn hộ, nhà phố, khách sạn, văn phòng công ty… Với đội ngũ thiết kế sáng tạo, nhiệt huyết và thi công chuyên nghiệp, nhiều kinh nghiệm, NT11 Company tự tin mang đến cho quý khách hàng những dự án kiến trúc - nội thất sang trọng, độc đáo, bền vững và đặc biệt với mức giá vô cùng cạnh tranh."
-        contentIntro.setAttribute("class"," text-white")
-        this.$intro.appendChild(titleIntro);
-        this.$intro.appendChild(contentIntro);
+    render(container) {
+        this.$introContainer.appendChild(this.$introTitleEl);
+        this.$introContainer.appendChild(this.$introContentEl);
 
-        const titleContact=document.createElement("h4");
-        titleContact.textContent="Lien he";
-        titleContact.setAttribute("class","font-bold text-white")
-        const contentContact=document.createElement("p");
-        contentContact.textContent="congluu-123456789";
-        contentContact.setAttribute("class","text-white");
-        this.$contact.appendChild(titleContact);
-        this.$contact.appendChild(contentContact);
-        
+        this.$contactsContainer.appendChild(this.$contactTitleEl);
+        this.$contactsContainer.appendChild(this.$addressEl);
+        this.$contactsContainer.appendChild(this.$phoneEl);
+        this.$contactsContainer.appendChild(this.$emailEl);
 
-        this.$footContainer.appendChild(this.$intro);
-        this.$footContainer.appendChild(this.$contact);
-        // this.$footContainer.appendChild(this.$creator);
+        this.$container.appendChild(this.$introContainer);
+        this.$container.appendChild(this.$contactsContainer);
 
-        container.appendChild(this.$footContainer);
+        this.$mainContainer.appendChild(this.$container);
+        this.$mainContainer.appendChild(this.$copyrightEl);
+
+        container.appendChild(this.$mainContainer)
     }
 }

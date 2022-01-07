@@ -15,7 +15,9 @@ export default class ViewCardChild{
     $applyButton;
     $updateViewCartButton;
 
-    constructor() {
+    _getInputValue
+    constructor(getInputValue) {
+        this._getInputValue=getInputValue
         this.$viewCardChildContainer=document.createElement("div");
 
 
@@ -34,7 +36,7 @@ export default class ViewCardChild{
         this.$total.textContent="Tổng";
 
 
-        this.$informationOfPurchasedProduct=new InformationOfPurchasedProduct();
+        this.$informationOfPurchasedProduct=new InformationOfPurchasedProduct(this._getInputValue);
 
         this.$updateViewCart=document.createElement("div");
 

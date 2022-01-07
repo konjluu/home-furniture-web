@@ -1,3 +1,5 @@
+import InputQuantily from "../InputQuantily.js";
+
 //Thông tin sản phẩm
 export default class InformationProduct{      
     inforList;
@@ -16,6 +18,7 @@ export default class InformationProduct{
     buttonBuy;
 
     _appendNotification
+
     constructor(appendNotification) {
         this._appendNotification=appendNotification;
 
@@ -44,13 +47,7 @@ export default class InformationProduct{
 
         this.cardComplete=document.createElement("div");
 
-        this.quantily=document.createElement("input");
-        this.quantily.type="number";
-        this.quantily.value=1;
-        this.quantily.min=1;
-        this.quantily.setAttribute(
-            "class",
-            "border border-gray-500");
+        this.quantily=new InputQuantily(1);
     
         this.buttonBuy=document.createElement("button");
         this.buttonBuy.type="submit";
@@ -61,14 +58,15 @@ export default class InformationProduct{
           );
         this.buttonBuy.addEventListener("click",this.onClickButtonBuy);
 
-    }
+    } 
 
     onClickButtonBuy=((e)=>{
-        if(this.quantily.value==0){
+        e.preventDefault();  
+        if(this.quantily.getValueInputQuantily()==0){
             alert("Vui long nhap so luong mua");
         }
         else{
-            this._appendNotification()
+            this._appendNotification(this.quantily)
         }
     })
 
@@ -79,7 +77,7 @@ export default class InformationProduct{
         this.cardLi.appendChild(this.id);
         this.cardLi.appendChild(this.from);
 
-        this.cardComplete.appendChild(this.quantily);
+        this.quantily.render(this.cardComplete)
         this.cardComplete.appendChild(this.buttonBuy);
 
         this.inforList.appendChild(this.price);

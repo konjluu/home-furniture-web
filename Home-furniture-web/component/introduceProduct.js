@@ -9,21 +9,21 @@ export default class IntroProduct{
     _handleClickViewCart;
     _id;
     constructor(handleClickViewCart,id){
-        console.log("introProduct",id)
+        // console.log("introProduct",id)
         this._id=id;
         
         this._handleClickViewCart=handleClickViewCart;
 
         this.$introContainer=document.createElement("div");
 
-        this.$describe=new DescribeProduct(()=>{
-            this.functionViewCart()
+        this.$describe=new DescribeProduct((quanity)=>{
+            this.functionViewCart(quanity)
         },this._id);
         this.$suggest=document.createElement("div");
     }
 
-    functionViewCart(){
-        this._handleClickViewCart();
+    functionViewCart(quanity){
+        this._handleClickViewCart(quanity);
     }
 
     render(container){

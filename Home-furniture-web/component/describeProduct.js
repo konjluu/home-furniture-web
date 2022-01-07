@@ -25,18 +25,21 @@ export default class DescribeProduct{
         this._Notification=document.createElement("div");
         
         this.$imgProduct=document.createElement("div");
-        this.$informationProduct=new InformationProduct(()=>{
-            this.appendNotification()
+        this.$informationProduct=new InformationProduct((quanity)=>{
+            this.appendNotification(quanity)
         });
 
         this.$detailedDescription=new DetailedDescription();
     }
 
-    viewCart=(()=>{
-        this._functionViewCart();
+    viewCart=((quanity)=>{
+        this._functionViewCart(quanity);
     })
 
-    appendNotification(){
+    appendNotification(quanity){
+        // console.log(quanity);
+        // console.log(quanity.getValueInputQuantily());
+        this._Notification.innerHTML="";
         const productAdded=document.createElement("p");
         productAdded.textContent="Bàn ăn gia đình đã được thêm vào giỏ hàng";
 
@@ -46,7 +49,7 @@ export default class DescribeProduct{
             "class",
             " bg-gray-700 hover:shadow-lg text-white font-bold mt-5 py-1 px-3 rounded"
           );
-        viewCart.addEventListener("click",this.viewCart);
+        viewCart.addEventListener("click",()=>this.viewCart(quanity.getValueInputQuantily));
 
 
         const Notification=document.createElement("div");
@@ -54,8 +57,6 @@ export default class DescribeProduct{
             "class",
             "bg-slate-300"
           );
-
-
         Notification.appendChild(productAdded);
         Notification.appendChild(viewCart);
         this._Notification.appendChild(Notification);
@@ -64,25 +65,12 @@ export default class DescribeProduct{
 
     render(container){
         const picItemTemp=`picItem${this._id}`;
-        console.log(picItemTemp,"des")
         const imgs=imgDescribe[picItemTemp];
-        console.log(imgs);
+        // console.log(imgs);
         imgs.forEach(img=>{
             const pic= new ImgProduct(img);
             pic.render(this.$imgProduct);
         })
-
-        // const picItem=picItemTemp.split.join("");
-        // const pic1= new ImgProduct(imgDescribe.picItem[0]);
-        // const pic2= new ImgProduct(imgDescribe.picItem[1]);
-        // const pic3= new ImgProduct(imgDescribe.picItem[2]);
-        // const pic4= new ImgProduct(imgDescribe.picItem[3]);
-        // const pic5= new ImgProduct(imgDescribe.picItem[4]);
-        // pic1.render(this.$imgProduct);
-        // pic2.render(this.$imgProduct);
-        // pic3.render(this.$imgProduct);
-        // pic4.render(this.$imgProduct);
-        // pic5.render(this.$imgProduct);
 
         this.$DescribeContainer.appendChild(this._Notification);
         this.$DescribeContainer.appendChild(this.$imgProduct);
