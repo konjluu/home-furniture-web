@@ -19,31 +19,6 @@ export default class Header{
         this.$headerContainer=document.createElement("div");
         this.$headerContainer.setAttribute("style", "color: white; width: 100vw; height: 600px; background-image: url('https://nt11.mediawz.com/wp-content/uploads/2017/10/img_5452.jpg'); background-size: cover; background-position: center center; display: flex; flex-direction: column; align-items: center;")
 
-        // this.$logoWeb=document.createElement("img");
-        // this.$logoWeb.src = "https://nt11.mediawz.com/wp-content/uploads/2021/07/Nt11.png";
-        // this.$logoWeb.setAttribute("class", "w-40 h-14 m-10");
-
-        // this.$topMenu=document.createElement("div");
-        // this.$topMenu.setAttribute('class', "w-2/3 m-auto flex justify-around items-center text-lg text-slate-50 ")
-
-
-        // this.$menu=document.createElement("h5");
-        // this.$menu.textContent="Trang chủ";
-
-        // this.$livingRoom=document.createElement("button");
-        // this.$livingRoom.textContent="Phòng khách";
-        // this.$livingRoom.addEventListener("click",()=>_backToLivingroom());
-
-        // this.$bedRoom=document.createElement("h5");
-        // this.$bedRoom.textContent="Phòng ngủ";
-
-        // this.$diningRoom=document.createElement("h5");
-        // this.$diningRoom.textContent="Phòng ăn";
-
-        // this.$contact=document.createElement("h5");
-        // this.$contact.textContent="Liên hệ";
-
-//
         this.$contactsContainer = document.createElement("div");
         this.$contactsContainer.setAttribute("class", "w-1/2 flex justify-end mt-2");
 
@@ -121,13 +96,13 @@ export default class Header{
         this.$contactEl.setAttribute("class", "font-bold cursor-pointer hover:text-red-600 hover:underline");
     }
 
-    // setActiveLogin=()=>{
-    //     this.$userEl.classList.remove("hidden");
-    //     this.$registerBtn.classList.add("hidden");
-    //     this.$loginBtn.classList.add("hidden");
-    //     this.$divideEl.classList.add("hidden");
-    //     // this.$cartContainer.classList.remove("hidden");
-    // }
+    setActiveLogin=()=>{
+        this.$userEl.classList.remove("hidden");
+        this.$registerBtn.classList.add("hidden");
+        this.$loginBtn.classList.add("hidden");
+        this.$divideEl.classList.add("hidden");
+        this.$cartContainer.classList.remove("hidden");
+    }
 
     goToRegister = () => {
         const registerScreen = new Register();
@@ -140,7 +115,6 @@ export default class Header{
     }
 
     // backToLivingroom=(()=>{
-    //     console.log("123");
     //     Main.backToLivingroom();
     // })
 
@@ -163,13 +137,6 @@ export default class Header{
         this.$tabarContainer.appendChild(this.$contactEl);
 
         this.$productModal.render(this.$productsEl);
-
-        // this.$topMenu.appendChild(this.$logoWeb);
-        // this.$topMenu.appendChild(this.$menu);
-        // this.$topMenu.appendChild(this.$livingRoom);
-        // this.$topMenu.appendChild(this.$bedRoom);
-        // this.$topMenu.appendChild(this.$diningRoom);
-        // this.$topMenu.appendChild(this.$contact);
         
         this.$headerContainer.appendChild(this.$contactsContainer);
         this.$headerContainer.appendChild(this.$tabarContainer);

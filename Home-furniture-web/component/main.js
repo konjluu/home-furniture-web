@@ -8,6 +8,8 @@ import {livingRoom,diningroom,bedroom,titleAddressRoom} from "./API.js";
 import HomePage from "./Home.js";
 import CartModal from "./CartModal.js";
 
+import Contact from "./contact.js"
+
 export default class Main{
 
   $appContainer;
@@ -21,16 +23,17 @@ export default class Main{
  
   $introProduct;
   $viewCart;
-  $id;
-
-
+  
   constructor(){
     this.$appContainer=document.createElement("div");
 
     this.$head=new Header();
+    this.$head.$logoEl.addEventListener("click", this.onHomeClick);
     this.$head.$productModal.$guestroom.addEventListener("click", this.onGuestroomClick);
     this.$head.$productModal.$diningroom.addEventListener("click", this.onDiningroomClick);
     this.$head.$productModal.$bedroom.addEventListener("click", this.onBedroomClick);
+    this.$head.$organizationEl.addEventListener("click", this.onOrganizationClick);
+    this.$head.$contactEl.addEventListener("click", this.onContactClick);
 
     this.$cartModal = new CartModal();
 
@@ -39,16 +42,13 @@ export default class Main{
     this.$room.setAttribute('class', "grid grid-cols-4");
     
     this.$middleScreen=document.createElement("div");
-    
-
-    this.$id=0;
     this.$home=new HomePage();
     }
 
-  onHomeClick = (e) => {
-    e.preventDefault();
+  onHomeClick = () => {
     this.$middleScreen.innerHTML ="";
-    this.$home.render(this.$middleScreen);
+    this.$head.$headerContainer.setAttribute("style", "color: white; width: 100vw; height: 600px; background-image: url('https://nt11.mediawz.com/wp-content/uploads/2017/10/img_5452.jpg'); background-size: cover; background-position: center center; display: flex; flex-direction: column; align-items: center;")
+    this.$middleScreen.appendChild(this.$home.render());
 
   }
 
@@ -61,6 +61,7 @@ export default class Main{
     this.$titleAddress.render(this.$middleScreen);
     this.$middleScreen.appendChild(this.$room);
 
+    this.$head.$headerContainer.setAttribute("style", "width: 100vw; color: orange; display: flex; flex-direction: column; align-items: center");
   }
 
   onDiningroomClick = () => {
@@ -71,10 +72,11 @@ export default class Main{
     this.$titleAddress=new TitleAddressRoom("Phòng an");    
     this.$titleAddress.render(this.$middleScreen);
     this.$middleScreen.appendChild(this.$room);
+
+    this.$head.$headerContainer.setAttribute("style", "width: 100vw; color: orange; display: flex; flex-direction: column; align-items: center");
   }
 
   onBedroomClick = () => {  
-    
     this.$middleScreen.innerHTML ="";
     this.$room.innerHTML=""
     this.items= bedroom.map(room=>new Room(room,this.handleClickProduct));
@@ -83,14 +85,18 @@ export default class Main{
     this.$titleAddress.render(this.$middleScreen);
     this.$middleScreen.appendChild(this.$room);
     // console.log(this.$middleScreen,"middle2")
+    this.$head.$headerContainer.setAttribute("style", "width: 100vw; color: orange; display: flex; flex-direction: column; align-items: center");
     
   }
 
   handleClickViewCart=(quantily)=>{
     // console.log(quantily,"quantily");
+    
     const viewCart=new ViewCart(quantily);  
     this.$middleScreen.innerHTML ="";
     viewCart.render(this.$middleScreen);
+
+    this.$head.$headerContainer.setAttribute("style", "width: 100vw; color: orange; display: flex; flex-direction: column; align-items: center");
   }
   
   handleClickProduct=(_id)=>{
@@ -100,14 +106,35 @@ export default class Main{
     this.$titleAddress=new TitleAddressRoom(_titleAddressRoom); 
     this.$titleAddress.render(this.$middleScreen);
     this.$introProduct.render(this.$middleScreen);
+
+    this.$head.$headerContainer.setAttribute("style", "width: 100vw; color: orange; display: flex; flex-direction: column; align-items: center");
   }
 
-  
+  onContactClick=()=>{
+    this.$middleScreen.innerHTML ="";
+    this.$titleAddress=new TitleAddressRoom("Liên Lạc"); 
+    this.$titleAddress.render(this.$middleScreen);
+    const contact = new Contact()
+    contact.render(this.$middleScreen);
+    this.$head.$headerContainer.setAttribute("style", "width: 100vw; color: orange; display: flex; flex-direction: column; align-items: center");
+    this.$middleScreen.setAttribute("class","h-screen w-screen")
+  }
 
+  onOrganizationClick=()=>{
+    this.$middleScreen.innerHTML ="";
+    this.$titleAddress=new TitleAddressRoom("Cơ cấu tổ chức"); 
+    this.$titleAddress.render(this.$middleScreen);
+    const urlImg=document.createElement("img");
+    urlImg.src="./IMG/Mo-hinh-hoat-dong.jpeg";
+    this.$middleScreen.appendChild(urlImg);
+    this.$head.$headerContainer.setAttribute("style", "width: 100vw; color: orange; display: flex; flex-direction: column; align-items: center");
+  }
   render(mainContainer){
     this.$head.render(this.$appContainer);
+
     this.$middleScreen.appendChild(this.$home.render());
     this.$appContainer.appendChild(this.$middleScreen);
+    
     this.$appContainer.appendChild(this.$cartModal.render());
     this.$foot.render(this.$appContainer);
 

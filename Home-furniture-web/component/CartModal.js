@@ -14,13 +14,12 @@ export default class CartModal {
   
       this.$cartHead = document.createElement("div");
       this.$cartHead.setAttribute("class", " shopping-cart-head flex");
-  
-      this.$productQuantity = document.createElement("span");
-      this.$productQuantity.textContent = "0";
-      this.$productQuantity.setAttribute('class',"")
-  
       this.$cartHead.innerHTML =
       "<img src='https://pngimg.com/uploads/shopping_cart/shopping_cart_PNG4.png' alt='yourimgtext' width='30' height='30'' '/>";
+  
+      this.$productQuantity = document.createElement("span");
+      this.$productQuantity.textContent ="0";
+      this.$productQuantity.setAttribute('class',"")
   
   
       this.$cartList = document.createElement("ul");
