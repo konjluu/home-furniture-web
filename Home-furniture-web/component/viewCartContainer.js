@@ -7,11 +7,13 @@ export default class ViewCart{
     $calculateViewCart //tinh toan gio hang
     
     _getInputValue
-    constructor(getInputValue){
+    _id;
+    constructor(getInputValue,id){
+        this._id=id
         this._getInputValue=getInputValue;
         this.$viewCartContainer=document.createElement("div");
 
-        this.$viewCartChild=new ViewCardChild(this._getInputValue);
+        this.$viewCartChild=new ViewCardChild(this._getInputValue,this._id);
         this.$calculateViewCart=document.createElement("div");
         
     }

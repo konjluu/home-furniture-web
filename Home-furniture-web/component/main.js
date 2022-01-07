@@ -69,7 +69,7 @@ export default class Main{
     this.$room.innerHTML=""
     this.items= diningroom.map(room=>new Room(room,this.handleClickProduct));
     this.items.forEach(room=>room.render(this.$room));
-    this.$titleAddress=new TitleAddressRoom("Phòng an");    
+    this.$titleAddress=new TitleAddressRoom("Phòng ăn");    
     this.$titleAddress.render(this.$middleScreen);
     this.$middleScreen.appendChild(this.$room);
 
@@ -91,8 +91,8 @@ export default class Main{
 
   handleClickViewCart=(quantily)=>{
     // console.log(quantily,"quantily");
-    
-    const viewCart=new ViewCart(quantily);  
+    // console.log(this.$id,"$id");
+    const viewCart=new ViewCart(quantily,this.$id);  
     this.$middleScreen.innerHTML ="";
     viewCart.render(this.$middleScreen);
 
@@ -100,6 +100,7 @@ export default class Main{
   }
   
   handleClickProduct=(_id)=>{
+    this.$id=_id;
     this.$introProduct=new IntroProduct(this.handleClickViewCart,_id)
     this.$middleScreen.innerHTML ="";
     const _titleAddressRoom=titleAddressRoom[_id-1].name

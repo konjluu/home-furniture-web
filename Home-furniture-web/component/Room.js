@@ -49,15 +49,6 @@ export default class Room {
     // this.$buttonBuy.addEventListener("submit",this.handleSubmit)
   }
 
-  // setActiveScreen=(screen)=>{
-  //   if (this.$productItem!== undefined){
-  //     this.$productItem.innerHTML="";
-  //   }
-  //   else{
-  //     this.$productItem=screen;
-  //   }
-  // }
-
   // handleSubmit=(()=>{
 
   // })

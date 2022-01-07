@@ -33,12 +33,14 @@ export default class DescribeProduct{
     }
 
     viewCart=((quanity)=>{
+        
         this._functionViewCart(quanity);
     })
 
     appendNotification(quanity){
         // console.log(quanity);
         // console.log(quanity.getValueInputQuantily());
+
         this._Notification.innerHTML="";
         const productAdded=document.createElement("p");
         productAdded.textContent="Bàn ăn gia đình đã được thêm vào giỏ hàng";

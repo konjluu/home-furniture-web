@@ -11,7 +11,7 @@ export default class InputQuantily{
     }
 
     getValueInputQuantily=()=>{
-        console.log(this.quantily.value,"value")
+        // console.log(this.quantily.value,"value")
         return this.quantily.value;
     }
 

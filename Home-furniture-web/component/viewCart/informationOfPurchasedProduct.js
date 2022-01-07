@@ -10,15 +10,19 @@ export default class InformationOfPurchasedProduct {
     total;
 
     _getInputValue;
-    constructor(getInputValue) {
+    _id;
+    constructor(getInputValue,id) {
         this._getInputValue = getInputValue;
+        this._id=id;
 
         this.informationOfPurchasedProduct_Container = document.createElement("div");
 
         this.itemDeleteButton = document.createElement("button");
 
         this.illustration = document.createElement("img");
-        this.illustration.src = "./IMG/item1/1.jpeg";
+        const itemId=`item${this._id}`
+        this.illustration.src = "./IMG/"+itemId+"/1.jpeg"  ;  
+        // console.log(this.illustration.src,"src");
         this.illustration.id = 1;
         this.illustration.setAttribute(
             "class",
@@ -61,3 +65,4 @@ export default class InformationOfPurchasedProduct {
 
     }
 }
+/// ddax lay duoc id
