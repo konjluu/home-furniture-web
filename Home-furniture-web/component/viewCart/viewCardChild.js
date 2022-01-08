@@ -27,26 +27,33 @@ export default class ViewCardChild{
     constructor() {
         
         this.$viewCardChildContainer=document.createElement("div");
+        this.$viewCardChildContainer.setAttribute('class', "flex flex-col w-2/3 mx-auto")
 
 
         this.$parameter=document.createElement("div");
+        this.$parameter.setAttribute('class','flex mt-20')
 
         this.$nameProduct=document.createElement("p");
         this.$nameProduct.textContent="Sản phẩm";
+        this.$nameProduct.setAttribute('class','w-40')
 
         this.$cost=document.createElement("p");
         this.$cost.textContent="Giá";
+        this.$cost.setAttribute('class','ml-10 w-40')
 
         this.$quantily=document.createElement("p");
         this.$quantily.textContent="Số lượng";
+        this.$quantily.setAttribute('class','ml-10 w-40')
 
         this.$total=document.createElement("p");
         this.$total.textContent="Tổng";
+        this.$total.setAttribute('class','ml-10 w-40')
 
         this.$informationOfPurchasedProduct=document.createElement("div");
         // this.$informationOfPurchasedProduct=new InformationOfPurchasedProduct();
 
         this.$updateViewCart=document.createElement("div");
+        this.$updateViewCart.setAttribute('class', "mt-20")
 
         this.$codeSale=document.createElement("input");
         this.$codeSale.type="";
