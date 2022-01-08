@@ -5,6 +5,7 @@ import {
 }from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js";
 
 import InformationOfPurchasedProduct from "../viewCart/informationOfPurchasedProduct.js"
+import BillTotal from "../viewCart/_billTotal.js"
 export default class ViewCardChild{
     $viewCardChildContainer;
 
@@ -20,6 +21,9 @@ export default class ViewCardChild{
     $codeSale;
     $applyButton;
     $updateViewCartButton;
+
+    $calculateViewCart;
+    _billTotal;
     constructor() {
         
         this.$viewCardChildContainer=document.createElement("div");
@@ -54,18 +58,27 @@ export default class ViewCardChild{
         this.$updateViewCartButton=document.createElement("button");
         this.$applyButton.textContent="Cập nhật giỏ hàng";
 
-        this.getAllData();
+        // this.getAllData();
+
+        this.$calculateViewCart=new BillTotal(this._billTotal);
+
 
     }
 
     async getAllData(){
         const querySnapshot = await getDocs(viewCartRef);
+        this._billTotal=0;
         querySnapshot.forEach((doc) => {
             console.log(doc.data());
             const itemsOnviewCart=new InformationOfPurchasedProduct(doc.data());
             itemsOnviewCart.render(this.$informationOfPurchasedProduct);
+            this._billTotal+=doc.data().total
         });
+        console.log(_billTotal)
+        return this._billTotal;
     }
+
+    
 
     render(container){
         this.$parameter.appendChild(this.$nameProduct);
@@ -82,6 +95,8 @@ export default class ViewCardChild{
         this.$viewCardChildContainer.appendChild(this.$informationOfPurchasedProduct);
         // this.$informationOfPurchasedProduct.render(this.$viewCardChildContainer);
         this.$viewCardChildContainer.appendChild(this.$updateViewCart);
+
+        this.$calculateViewCart.render(this.$viewCardChildContainer);
 
         container.appendChild(this.$viewCardChildContainer)
 
