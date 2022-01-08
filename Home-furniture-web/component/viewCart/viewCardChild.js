@@ -1,3 +1,9 @@
+import {db,viewCartRef,viewCartMock} from "../constant/firebase.js"
+import {
+    getDocs,
+    query
+}from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js";
+
 import InformationOfPurchasedProduct from "../viewCart/informationOfPurchasedProduct.js"
 export default class ViewCardChild{
     $viewCardChildContainer;
@@ -14,14 +20,8 @@ export default class ViewCardChild{
     $codeSale;
     $applyButton;
     $updateViewCartButton;
-
-    // _getInputValue
-    // _id
-    // _name
     constructor() {
-        // this._getInputValue=getInputValue
-        // this._id=id
-        // this._name=name;
+        
         this.$viewCardChildContainer=document.createElement("div");
 
 
@@ -39,8 +39,8 @@ export default class ViewCardChild{
         this.$total=document.createElement("p");
         this.$total.textContent="Tổng";
 
-
-        this.$informationOfPurchasedProduct=new InformationOfPurchasedProduct();
+        this.$informationOfPurchasedProduct=document.createElement("div");
+        // this.$informationOfPurchasedProduct=new InformationOfPurchasedProduct();
 
         this.$updateViewCart=document.createElement("div");
 
@@ -54,11 +54,18 @@ export default class ViewCardChild{
         this.$updateViewCartButton=document.createElement("button");
         this.$applyButton.textContent="Cập nhật giỏ hàng";
 
+        this.getAllData();
+
     }
 
-    // pushData=()=>{
-    //     return this.$informationOfPurchasedProduct.pushData
-    // }
+    async getAllData(){
+        const querySnapshot = await getDocs(viewCartRef);
+        querySnapshot.forEach((doc) => {
+            console.log(doc.data());
+            const itemsOnviewCart=new InformationOfPurchasedProduct(doc.data());
+            itemsOnviewCart.render(this.$informationOfPurchasedProduct);
+        });
+    }
 
     render(container){
         this.$parameter.appendChild(this.$nameProduct);
@@ -72,7 +79,8 @@ export default class ViewCardChild{
         this.$updateViewCart.appendChild(this.$updateViewCartButton);
 
         this.$viewCardChildContainer.appendChild(this.$parameter);
-        this.$informationOfPurchasedProduct.render(this.$viewCardChildContainer);
+        this.$viewCardChildContainer.appendChild(this.$informationOfPurchasedProduct);
+        // this.$informationOfPurchasedProduct.render(this.$viewCardChildContainer);
         this.$viewCardChildContainer.appendChild(this.$updateViewCart);
 
         container.appendChild(this.$viewCardChildContainer)

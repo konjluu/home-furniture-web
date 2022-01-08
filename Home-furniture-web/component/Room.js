@@ -1,4 +1,5 @@
-
+import {viewCartRef } from "../component/constant/firebase.js";
+import { addDoc } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js";
 export default class Room {
   $urlImg;
   $saleButton;
@@ -62,11 +63,25 @@ export default class Room {
       "hidden bg-gray-400 hover:shadow-lg text-white font-bold ml-5 mt-5 py-1 px-3 rounded"
     );
   }
-
+//
+  pushData=()=>{
+    const dataViewCart={
+        img:this.$urlImg.src,
+        name:this.$titleProduct.textContent,
+        cost:2500000,
+        quantily: 1,
+        total: 1*2500000,
+        id:this.$urlImg.id
+    };
+    console.log(dataViewCart,"dataviwecart") ;
+    addDoc(viewCartRef, dataViewCart);     
+  }
+//
 
   handleSubmit=()=>{
     this.$viewCartInItemsRoom.classList.remove("hidden");
     this.$icon.classList.remove("hidden");
+    this.pushData();
   }
 
   render(container) {

@@ -1,6 +1,8 @@
+//Thông tin sản phẩm
+import {viewCartRef } from "../constant/firebase.js";
+import { addDoc } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js";
 import InputQuantily from "../InputQuantily.js";
 
-//Thông tin sản phẩm
 export default class InformationProduct{      
     inforList;
 
@@ -66,15 +68,16 @@ export default class InformationProduct{
     } 
 
     pushData=()=>{
-            const dataViewCart={
-                img:this._imgsrc,
-                name:this._name,
-                cost:2500000,
-                quantily: this.quantily.getValueInputQuantily(),
-                total: this.quantily.getValueInputQuantily()*2500000,
-                id:this._id
-            }
-            console.log(dataViewCart,"dataviwecart")      
+        const dataViewCart={
+            img:this._imgsrc,
+            name:this._name,
+            cost:2500000,
+            quantily: this.quantily.getValueInputQuantily(),
+            total: this.quantily.getValueInputQuantily()*2500000,
+            id:this._id
+        };
+        // console.log(dataViewCart,"dataviwecart") ;
+        addDoc(viewCartRef, dataViewCart);     
     }
 
     onClickButtonBuy=((e)=>{

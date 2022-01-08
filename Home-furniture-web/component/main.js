@@ -100,7 +100,6 @@ export default class Main{
 
   handleClickViewCart=()=>{
     // console.log(quantily,"quantily");
-    // console.log(this.$id,"$id");
     this.viewCart=new ViewCart(); 
     this.$middleScreen.innerHTML ="";
     this.viewCart.render(this.$middleScreen);

@@ -6,33 +6,35 @@ import {
 
 export const auth = getAuth();
 export const db = getFirestore();
-export const viewCartonFirebase = collection(db, "itemsOnViewCart");
+export const viewCartRef = collection(db, "itemsOnViewCart");
 
+export const viewCartMock = [
+  {
+    cost: 2500000,
+    id: 1,
+    img: "./IMG/item2/1.jpeg",
+    name: "item1",
+    quantily: 2,
+    total: 5000000
+  },
 
-// export const messagesRef = collection(db, "messages");
-// export const messagesMock = [
-//   {
-//     content: "hi 1",
-//     conversationId: "KaZxTzIcWOfEpW7S10KZ",
-//     createdAt: 1639446544658,
-//     sender: "1@gmail.com",
-//   },
-//   {
-//     content: "hi 3",
-//     conversationId: "EpW7aZxTzIcWOfS10KZK",
-//     createdAt: 1665446539448,
-//     sender: "2@gmail.com",
-//   },
-//   {
-//     content: "hi 3",
-//     conversationId: "aZxTzIEpW7S10KZKcWOf",
-//     createdAt: 1639444465865,
-//     sender: "3@gmail.com",
-//   },
-//   {
-//     content: "hi 4",
-//     conversationId: "aZxTzIEpW7S10KZKcWOf",
-//     createdAt: 1639444465865,
-//     sender: "3@gmail.com",
-//   },
-// ];
+  {
+    cost: 2500000,
+    id: 2,
+    img: "./IMG/item2/1.jpeg",
+    name: "item2",
+    quantily: 1,
+    total: 5000000
+  },
+
+  {
+    cost: 2500000,
+    id: 3,
+    img: "./IMG/item2/1.jpeg",
+    name: "item3",
+    quantily: 4,
+    total: 5000000
+  },
+
+  
+];

@@ -9,7 +9,7 @@ export default class IntroProduct{
     _handleClickViewCart;
     _id;
     _name
-    _imgsrc
+    _imgsrc;
     constructor(handleClickViewCart,id,name,imgsrc){
         this._handleClickViewCart=handleClickViewCart;
         this._id=id;

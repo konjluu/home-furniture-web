@@ -18,7 +18,7 @@ export default class DescribeProduct{
     _functionViewCart;
     _id;
     _name
-    _imgsrc
+    _imgsrc;
     constructor(functionViewCart,id,name,imgsrc){
         this._id=id;
         this._imgsrc=imgsrc;
