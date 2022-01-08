@@ -18,9 +18,10 @@ export default class InformationProduct{
     buttonBuy;
 
     _appendNotification
-
+    // _data
     constructor(appendNotification) {
         this._appendNotification=appendNotification;
+        // this._data=data;
 
         this.inforList=document.createElement("div");
 
@@ -56,9 +57,15 @@ export default class InformationProduct{
             "class",
             "bg-red-700 hover:shadow-lg text-white font-bold mt-5 py-1 px-3 rounded"
           );
-        this.buttonBuy.addEventListener("click",this.onClickButtonBuy);
-
+        this.buttonBuy.addEventListener("click",
+            this.onClickButtonBuy)
+            
+        
+            
+        
     } 
+
+    
 
     onClickButtonBuy=((e)=>{
         e.preventDefault();  
@@ -66,7 +73,7 @@ export default class InformationProduct{
             alert("Vui long nhap so luong mua");
         }
         else{
-            this._appendNotification(this.quantily)
+            this._appendNotification(this.quantily);
         }
     })
 

@@ -1,4 +1,6 @@
-import Main from "./main.js"
+import { signOut,getAuth } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
+export const auth = getAuth();
+// import Main from "./main.js"
 import Register from "./Register.js";
 import Login from "./Login.js";
 import app from "../index.js";
@@ -14,6 +16,7 @@ export default class Header{
     // $bedRoom;
     // $diningRoom;
     // $contact
+    $userEl
 
     constructor(){
         this.$headerContainer=document.createElement("div");
@@ -42,7 +45,7 @@ export default class Header{
 
         this.$userEl = document.createElement("div");
         this.$userEl.innerHTML = '<i class="fas fa-user"></i>';
-        this.$userEl.setAttribute("class", "text-white hidden ml-4 cursor-pointer text-xl");
+        this.$userEl.setAttribute("class", "text-amber-400 hidden ml-4 cursor-pointer text-xl");
 
         this.$divideEl = document.createElement("p");
         this.$divideEl.textContent = "|";
@@ -94,15 +97,25 @@ export default class Header{
         this.$contactEl = document.createElement("p");
         this.$contactEl.textContent = "Liên hệ";
         this.$contactEl.setAttribute("class", "font-bold cursor-pointer hover:text-red-600 hover:underline");
+
+
+        this.$logOutEle=document.createElement("button");
+        this.$logOutEle.textContent="Đăng xuất";
+        this.$logOutEle.setAttribute(
+            "class",
+            "mr-4 w-24 "
+        )
+        this.$logOutEle.addEventListener("click",this.onSignOut);
     }
 
-    setActiveLogin=()=>{
-        this.$userEl.classList.remove("hidden");
-        this.$registerBtn.classList.add("hidden");
-        this.$loginBtn.classList.add("hidden");
-        this.$divideEl.classList.add("hidden");
-        this.$cartContainer.classList.remove("hidden");
-    }
+    onSignOut = () => {
+        signOut(auth)
+          .then(() => {console.log("abc")})
+          .catch(() => {
+            alert("Vui long thu lai sau");
+          });
+
+      };
 
     goToRegister = () => {
         const registerScreen = new Register();
@@ -114,10 +127,6 @@ export default class Header{
         app.setActiveScreen(loginScreen);
     }
 
-    // backToLivingroom=(()=>{
-    //     Main.backToLivingroom();
-    // })
-
     render(container){
         this.$contactsContainer.appendChild(this.$phoneEl);
         this.$contactsContainer.appendChild(this.$socialMediaEl);
@@ -126,6 +135,8 @@ export default class Header{
         this.$contactsContainer.appendChild(this.$divideEl);
         this.$contactsContainer.appendChild(this.$loginBtn);
         this.$contactsContainer.appendChild(this.$userEl);
+        this.$contactsContainer.appendChild(this.$logOutEle);
+        
 
         this.$tabarContainer.appendChild(this.$logoEl);
         this.$tabarContainer.appendChild(this.$projectsEl);

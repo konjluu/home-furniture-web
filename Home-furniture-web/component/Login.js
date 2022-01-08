@@ -50,18 +50,21 @@ export default class Login {
 
     const email = this.$emailEl.getInputValue();
     const password = this.$pwEl.getInputValue();
+    // console.log({email,password})
 
     signInWithEmailAndPassword(auth, email, password)
       .then((user) => {
+        // console.log(user)
         const mainScreen = new Main();
-        mainScreen.$header.$userEl.classList.remove("hidden");
-        mainScreen.$header.$registerBtn.classList.add("hidden");
-        mainScreen.$header.$loginBtn.classList.add("hidden");
-        mainScreen.$header.$divideEl.classList.add("hidden");
+        mainScreen.$head.$userEl.classList.remove("hidden");
+        mainScreen.$head.$registerBtn.classList.add("hidden");
+        mainScreen.$head.$loginBtn.classList.add("hidden");
+        mainScreen.$head.$divideEl.classList.add("hidden");
         mainScreen.$cartModal.$cartContainer.classList.remove("hidden");
         app.setActiveScreen(mainScreen);
       })
       .catch((error) => {
+        console.log(error)
         alert(error.message);
       });
   };

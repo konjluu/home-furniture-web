@@ -1,3 +1,5 @@
+import app from "../index.js";
+import Login from "./Login.js"
 import Header from "./headerPage.js";
 import TitleAddressRoom from "./titleAddressRoom.js";
 import Room from "./Room.js";
@@ -35,6 +37,7 @@ export default class Main{
     this.$head.$organizationEl.addEventListener("click", this.onOrganizationClick);
     this.$head.$contactEl.addEventListener("click", this.onContactClick);
 
+
     this.$cartModal = new CartModal();
 
     this.$foot=new Footer();
@@ -42,8 +45,14 @@ export default class Main{
     this.$room.setAttribute('class', "grid grid-cols-4");
     
     this.$middleScreen=document.createElement("div");
+    this.$middleScreen.setAttribute('class', "w-full h-full  ");
     this.$home=new HomePage();
-    }
+  }
+
+  handleLogout=()=>{
+    const logIn= new Login();
+    
+  }
 
   onHomeClick = () => {
     this.$middleScreen.innerHTML ="";
@@ -92,19 +101,21 @@ export default class Main{
   handleClickViewCart=(quantily)=>{
     // console.log(quantily,"quantily");
     // console.log(this.$id,"$id");
-    const viewCart=new ViewCart(quantily,this.id,this.name);  
+    this.viewCart=new ViewCart(quantily,this.id,this.name); 
     this.$middleScreen.innerHTML ="";
-    viewCart.render(this.$middleScreen);
+    this.viewCart.render(this.$middleScreen);
 
     this.$head.$headerContainer.setAttribute("style", "width: 100vw; color: orange; display: flex; flex-direction: column; align-items: center");
   }
   
   handleClickProduct=(_id)=>{
     this.id=_id;
-    this.$introProduct=new IntroProduct(this.handleClickViewCart,_id)
-    this.$middleScreen.innerHTML ="";
+    // const data=this.viewCart.pushData;
+    // console.log(data,"dataaa");
     const _titleAddressRoom=titleAddressRoom[_id-1].name
     this.name=_titleAddressRoom;
+    this.$introProduct=new IntroProduct(this.handleClickViewCart,_id,_titleAddressRoom)
+    this.$middleScreen.innerHTML ="";
     this.$titleAddress=new TitleAddressRoom(_titleAddressRoom); 
     this.$titleAddress.render(this.$middleScreen);
     this.$introProduct.render(this.$middleScreen);

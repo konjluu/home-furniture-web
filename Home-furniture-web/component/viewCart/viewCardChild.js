@@ -54,7 +54,10 @@ export default class ViewCardChild{
         this.$updateViewCartButton=document.createElement("button");
         this.$applyButton.textContent="Cập nhật giỏ hàng";
 
+    }
 
+    pushData=()=>{
+        return this.$informationOfPurchasedProduct.pushData
     }
 
     render(container){

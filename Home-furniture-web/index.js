@@ -5,6 +5,8 @@ import {
   collection,
 } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js";
 
+import Login from "./component/Login.js"
+
 export const auth = getAuth();
 export const db = getFirestore();
 
@@ -24,14 +26,15 @@ class App {
         if(user) {
           const mainScreen = new Main();
           mainScreen.$head.$userEl.classList.remove("hidden");
+
+          mainScreen.$head.$logOutEle.classList.remove("hidden");
           mainScreen.$head.$registerBtn.classList.add("hidden");
           mainScreen.$head.$loginBtn.classList.add("hidden");
           mainScreen.$head.$divideEl.classList.add("hidden");
           mainScreen.$cartModal.$cartContainer.classList.remove("hidden");
           this.setActiveScreen(mainScreen);
         } else {
-          const mainScreen = new Main();
-          this.setActiveScreen(mainScreen);
+          this.setActiveScreen(new Login ());
         }
       });
     }

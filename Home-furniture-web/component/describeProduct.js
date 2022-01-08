@@ -17,12 +17,17 @@ export default class DescribeProduct{
 
     _functionViewCart;
     _id;
-    constructor(functionViewCart,id){
+    _name
+    // _data
+    constructor(functionViewCart,id,name){
         this._id=id;
-        
+        // this._data=data;
         this._functionViewCart=functionViewCart;
+        this._name=name;
+
         this.$DescribeContainer=document.createElement("div");
         this._Notification=document.createElement("div");
+        this.$intro=document.createElement("div");
         
         this.$imgProduct=document.createElement("div");
         this.$informationProduct=new InformationProduct((quanity)=>{
@@ -43,7 +48,7 @@ export default class DescribeProduct{
 
         this._Notification.innerHTML="";
         const productAdded=document.createElement("p");
-        productAdded.textContent="Bàn ăn gia đình đã được thêm vào giỏ hàng";
+        productAdded.textContent=this._name +" đã được thêm vào giỏ hàng";
 
         const viewCart=document.createElement("button");
         viewCart.textContent="Xem giỏ hàng";
@@ -75,8 +80,12 @@ export default class DescribeProduct{
         })
 
         this.$DescribeContainer.appendChild(this._Notification);
-        this.$DescribeContainer.appendChild(this.$imgProduct);
-        this.$informationProduct.render(this.$DescribeContainer);
+
+        this.$intro.appendChild(this.$imgProduct);
+        this.$informationProduct.render(this.$intro);
+        // this.$intro.setAttribute("class","flex-col")
+        this.$DescribeContainer.appendChild(this.$intro);
+
         this.$detailedDescription.render(this.$DescribeContainer);
         container.appendChild(this.$DescribeContainer);
         

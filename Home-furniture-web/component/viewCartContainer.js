@@ -20,6 +20,10 @@ export default class ViewCart{
         
     }
 
+    pushData=()=>{
+        return this.$viewCartChild.pushData;
+    }
+
     render(container){
         this.$viewCartChild.render(this.$viewCartContainer)
         this.$viewCartContainer.appendChild(this.$calculateViewCart)

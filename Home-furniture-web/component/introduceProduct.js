@@ -8,18 +8,22 @@ export default class IntroProduct{
 
     _handleClickViewCart;
     _id;
-    constructor(handleClickViewCart,id){
+    _name
+    // _data
+    constructor(handleClickViewCart,id,name){
         // console.log("introProduct",id)
         this._id=id;
         this._handleClickViewCart=handleClickViewCart;
+        // this._data=data;
+        this._name=name;
 
         this.$introContainer=document.createElement("div");
 
         this.$describe=new DescribeProduct((quanity)=>{
             this.functionViewCart(quanity)
-        },this._id);
+        },this._id,this._name);
 
-        
+
         this.$suggest=document.createElement("div");
     }
 
@@ -35,3 +39,7 @@ export default class IntroProduct{
         container.appendChild(this.$introContainer);
     }
 }
+
+
+
+//28:32

@@ -59,7 +59,7 @@ export default class InformationOfPurchasedProduct {
 
     }
 
-    data=()=>{
+    pushData=()=>{
         const dataViewCart={
             img:this.illustration.src,
             name:this._name,
@@ -68,8 +68,7 @@ export default class InformationOfPurchasedProduct {
             total: this.total.value,
             id:this._id
         }
-        // console.log(dataViewCart,"dataviwecart")
-            
+        console.log(dataViewCart,"dataviwecart")      
     }
 
     render(container) {
