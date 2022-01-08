@@ -6,23 +6,23 @@ export default class ViewCart{
     $viewCartChild //Thong so gio hang
     $calculateViewCart //tinh toan gio hang
     
-    _getInputValue
-    _id;
-    _name
-    constructor(getInputValue,id,name){
-        this._name=name
-        this._id=id
-        this._getInputValue=getInputValue;
+    // _getInputValue
+    // _id;
+    // _name
+    constructor(){
+        // this._name=name
+        // this._id=id
+        // this._getInputValue=getInputValue;
         this.$viewCartContainer=document.createElement("div");
 
-        this.$viewCartChild=new ViewCardChild(this._getInputValue,this._id,this._name);
+        this.$viewCartChild=new ViewCardChild();
         this.$calculateViewCart=document.createElement("div");
         
     }
 
-    pushData=()=>{
-        return this.$viewCartChild.pushData;
-    }
+    // pushData=()=>{
+    //     return this.$viewCartChild.pushData;
+    // }
 
     render(container){
         this.$viewCartChild.render(this.$viewCartContainer)

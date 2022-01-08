@@ -9,19 +9,18 @@ export default class IntroProduct{
     _handleClickViewCart;
     _id;
     _name
-    // _data
-    constructor(handleClickViewCart,id,name){
-        // console.log("introProduct",id)
-        this._id=id;
+    _imgsrc
+    constructor(handleClickViewCart,id,name,imgsrc){
         this._handleClickViewCart=handleClickViewCart;
-        // this._data=data;
+        this._id=id;
         this._name=name;
+        this._imgsrc=imgsrc;
 
         this.$introContainer=document.createElement("div");
 
         this.$describe=new DescribeProduct((quanity)=>{
             this.functionViewCart(quanity)
-        },this._id,this._name);
+        },this._id,this._name,this._imgsrc);
 
 
         this.$suggest=document.createElement("div");

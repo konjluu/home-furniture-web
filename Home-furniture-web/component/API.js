@@ -377,96 +377,119 @@ export const suggest=[
 
 export const titleAddressRoom = [
     {
+        img: "./IMG/item1/1.jpeg",
         name: "Bàn ăn gia đình",
         id:1
     },
     {
+        img: "./IMG/item2/1.jpeg",
         name: "Bàn khách chung cư",
         id:2
     },
     {
+        img: "./IMG/item3/1.jpeg",
         name: "Bàn khách gia đình",
         id:3,
     },
     {
+        img: "./IMG/item4/1.jpeg",
         name: "Bàn trang điểm",
         id:4,
     },
     {
+        img: "./IMG/item5/1.jpeg",
         name: "Đồ gia dụng cho gia đình",
         id:5,
     },
     {
+        img: "./IMG/item6/1.jpeg",
         name: "Ghế sofa phòng khách",
         id:6
     },
     {
+        img: "./IMG/item7/1.jpeg",
         name: "Nhà vệ sinh",
         id:7
     },
     {
+        img: "./IMG/item8/1.jpeg",
         name: "Nội thất văn phòng 01",
         id:8
     },
 
     {
+        img: "./IMG/item9/1.jpeg",
         name: "Bàn ăn gia đình",
         id:9
     },
     {
+        img: "./IMG/item10/1.jpeg",
         name: "Bàn khách chung cư",
         id:10
     },
     {
+        img: "./IMG/item11/1.jpeg",
         name: "Bàn khách gia đình",
         id:11,
     },
     {
+        img: "./IMG/item12/1.jpeg",
         name: "Bàn trang điểm",
         id:12,
     },
     {
+        img: "./IMG/item13/1.jpeg",
         name: "Đồ gia dụng cho gia đình",
         id:13,
     },
     {
+        img: "./IMG/item14/1.jpeg",
         name: "Ghế sofa phòng khách",
         id:14
     },
     {
+        img: "./IMG/item15/1.jpeg",
         name: "Nhà vệ sinh",
         id:15
     },
     {
+        img: "./IMG/item16/1.jpeg",
         name: "Nội thất văn phòng 01",
         id:16
     },
 
     {
+        img: "./IMG/item17/1.jpeg",
         name: "Bàn ăn gia đình",
         id:17
     },
     {
+        img: "./IMG/item18/1.jpeg",
         name: "Bàn khách chung cư",
         id:18
     },
     {
+        img: "./IMG/item19/1.jpeg",
         name: "Bàn khách gia đình",
         id:19,
     },
     {
+        img: "./IMG/item20/1.jpeg",
         name: "Bàn trang điểm",
         id:20,
     },
     {
+        img: "./IMG/item21/1.jpeg",
         name: "Đồ gia dụng cho gia đình",
         id:21,
     },
     {
+        img: "./IMG/item22/1.jpeg",
         name: "Ghế sofa phòng khách",
         id:22,
     },
     {
+        img: "./IMG/item23/1.jpeg",
         name: "Nhà vệ sinh",
         id:23,
     }

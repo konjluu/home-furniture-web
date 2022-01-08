@@ -15,13 +15,13 @@ export default class ViewCardChild{
     $applyButton;
     $updateViewCartButton;
 
-    _getInputValue
-    _id
-    _name
-    constructor(getInputValue,id,name) {
-        this._getInputValue=getInputValue
-        this._id=id
-        this._name=name;
+    // _getInputValue
+    // _id
+    // _name
+    constructor() {
+        // this._getInputValue=getInputValue
+        // this._id=id
+        // this._name=name;
         this.$viewCardChildContainer=document.createElement("div");
 
 
@@ -40,7 +40,7 @@ export default class ViewCardChild{
         this.$total.textContent="Tổng";
 
 
-        this.$informationOfPurchasedProduct=new InformationOfPurchasedProduct(this._getInputValue,this._id,this._name);
+        this.$informationOfPurchasedProduct=new InformationOfPurchasedProduct();
 
         this.$updateViewCart=document.createElement("div");
 
@@ -56,9 +56,9 @@ export default class ViewCardChild{
 
     }
 
-    pushData=()=>{
-        return this.$informationOfPurchasedProduct.pushData
-    }
+    // pushData=()=>{
+    //     return this.$informationOfPurchasedProduct.pushData
+    // }
 
     render(container){
         this.$parameter.appendChild(this.$nameProduct);

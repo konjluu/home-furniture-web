@@ -18,10 +18,10 @@ export default class DescribeProduct{
     _functionViewCart;
     _id;
     _name
-    // _data
-    constructor(functionViewCart,id,name){
+    _imgsrc
+    constructor(functionViewCart,id,name,imgsrc){
         this._id=id;
-        // this._data=data;
+        this._imgsrc=imgsrc;
         this._functionViewCart=functionViewCart;
         this._name=name;
 
@@ -32,7 +32,7 @@ export default class DescribeProduct{
         this.$imgProduct=document.createElement("div");
         this.$informationProduct=new InformationProduct((quanity)=>{
             this.appendNotification(quanity)
-        });
+        },this._id,this._name,this._imgsrc);
 
         this.$detailedDescription=new DetailedDescription();
     }
@@ -44,11 +44,9 @@ export default class DescribeProduct{
 
     appendNotification(quanity){
         // console.log(quanity);
-        // console.log(quanity.getValueInputQuantily());
-
         this._Notification.innerHTML="";
         const productAdded=document.createElement("p");
-        productAdded.textContent=this._name +" đã được thêm vào giỏ hàng";
+        productAdded.textContent=quanity+" x " +`"${this._name}"`+" đã được thêm vào giỏ hàng.";
 
         const viewCart=document.createElement("button");
         viewCart.textContent="Xem giỏ hàng";
@@ -58,7 +56,6 @@ export default class DescribeProduct{
           );
         viewCart.addEventListener("click",()=>this.viewCart(quanity.getValueInputQuantily));
 
-
         const Notification=document.createElement("div");
         Notification.setAttribute(
             "class",
@@ -67,7 +64,6 @@ export default class DescribeProduct{
         Notification.appendChild(productAdded);
         Notification.appendChild(viewCart);
         this._Notification.appendChild(Notification);
-        
     }
 
     render(container){
