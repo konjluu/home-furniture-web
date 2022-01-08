@@ -9,6 +9,7 @@ import ViewCart from "./viewCartContainer.js";
 import {livingRoom,diningroom,bedroom,titleAddressRoom} from "./API.js";
 import HomePage from "./Home.js";
 import CartModal from "./CartModal.js";
+import News from "./news.js"
 
 import Contact from "./contact.js"
 
@@ -36,6 +37,7 @@ export default class Main{
     this.$head.$productModal.$bedroom.addEventListener("click", this.onBedroomClick);
     this.$head.$organizationEl.addEventListener("click", this.onOrganizationClick);
     this.$head.$contactEl.addEventListener("click", this.onContactClick);
+    this.$head.$newEl.addEventListener("click", this.onNewsClick);
 
 
     this.$cartModal = new CartModal(this.handleClickViewCart);
@@ -49,9 +51,14 @@ export default class Main{
     this.$home=new HomePage();
   }
 
-  handleLogout=()=>{
-    const logIn= new Login();
-    
+  onNewsClick=()=>{
+    this.$middleScreen.innerHTML ="";
+    this.$titleAddress=new TitleAddressRoom("Tin tức"); 
+    this.$titleAddress.render(this.$middleScreen);
+    const news = new News()
+    news.render(this.$middleScreen);
+    this.$head.$headerContainer.setAttribute("style", "width: 100vw; color: orange; display: flex; flex-direction: column; align-items: center");
+    this.$middleScreen.setAttribute("class","h-screen w-screen")
   }
 
   onHomeClick = () => {
@@ -127,7 +134,7 @@ export default class Main{
     const contact = new Contact()
     contact.render(this.$middleScreen);
     this.$head.$headerContainer.setAttribute("style", "width: 100vw; color: orange; display: flex; flex-direction: column; align-items: center");
-    this.$middleScreen.setAttribute("class","h-screen w-screen")
+    this.$middleScreen.setAttribute("class","h-screen w-screen");
   }
 
   onOrganizationClick=()=>{

@@ -66,7 +66,7 @@ export default class Room {
       _handleClickViewCart();
     });
   }
-//
+
   pushData=()=>{
     const dataViewCart={
         img:this.$urlImg.src,
@@ -76,10 +76,10 @@ export default class Room {
         total: 1*2500000,
         id:this.$urlImg.id
     };
-    console.log(dataViewCart,"dataviwecart") ;
+    // console.log(dataViewCart,"dataviwecart in ROOM") ;
     addDoc(viewCartRef, dataViewCart);     
   }
-//
+
 
   handleSubmit=()=>{
     this.$viewCartInItemsRoom.classList.remove("hidden");
