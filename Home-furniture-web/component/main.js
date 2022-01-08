@@ -38,7 +38,7 @@ export default class Main{
     this.$head.$contactEl.addEventListener("click", this.onContactClick);
 
 
-    this.$cartModal = new CartModal();
+    this.$cartModal = new CartModal(this.handleClickViewCart);
 
     this.$foot=new Footer();
     this.$room= document.createElement("div");
@@ -64,7 +64,7 @@ export default class Main{
   onGuestroomClick = () => {
     this.$middleScreen.innerHTML ="";
     this.$room.innerHTML=""
-    this.items= livingRoom.map(room=>new Room(room,this.handleClickProduct));
+    this.items= livingRoom.map(room=>new Room(room,this.handleClickProduct,this.handleClickViewCart));
     this.items.forEach(room=>room.render(this.$room));
     this.$titleAddress=new TitleAddressRoom("Phòng khách");
     this.$titleAddress.render(this.$middleScreen);
@@ -76,7 +76,7 @@ export default class Main{
   onDiningroomClick = () => {
     this.$middleScreen.innerHTML ="";
     this.$room.innerHTML=""
-    this.items= diningroom.map(room=>new Room(room,this.handleClickProduct));
+    this.items= diningroom.map(room=>new Room(room,this.handleClickProduct,this.handleClickViewCart));
     this.items.forEach(room=>room.render(this.$room));
     this.$titleAddress=new TitleAddressRoom("Phòng ăn");    
     this.$titleAddress.render(this.$middleScreen);
@@ -88,7 +88,7 @@ export default class Main{
   onBedroomClick = () => {  
     this.$middleScreen.innerHTML ="";
     this.$room.innerHTML=""
-    this.items= bedroom.map(room=>new Room(room,this.handleClickProduct));
+    this.items= bedroom.map(room=>new Room(room,this.handleClickProduct,this.handleClickViewCart));
     this.items.forEach(room=>room.render(this.$room));
     this.$titleAddress=new TitleAddressRoom("Phòng ngủ");    
     this.$titleAddress.render(this.$middleScreen);

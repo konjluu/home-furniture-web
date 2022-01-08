@@ -8,20 +8,26 @@ export default class CartModal {
     $checkoutBtn;
     $totalPrice;
   
-    constructor() {
+    _handleClickViewCart
+    constructor(handleClickViewCart) {
+      this._handleClickViewCart=handleClickViewCart
+
       this.$cartContainer = document.createElement("div");
       this.$cartContainer.setAttribute("class", " shopping-cart hidden");
   
-      this.$cartHead = document.createElement("div");
+      this.$cartHead = document.createElement("button");
       this.$cartHead.setAttribute("class", " shopping-cart-head flex");
       this.$cartHead.innerHTML =
       "<img src='https://pngimg.com/uploads/shopping_cart/shopping_cart_PNG4.png' alt='yourimgtext' width='30' height='30'' '/>";
+      this.$cartHead.addEventListener("click", this._handleClickViewCart);
   
       this.$productQuantity = document.createElement("span");
       this.$productQuantity.textContent ="0";
       this.$productQuantity.setAttribute('class',"")
   
   
+
+      
       this.$cartList = document.createElement("ul");
       this.$cartList.setAttribute("class", "shopping-cart-list");
   

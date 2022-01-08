@@ -24,6 +24,7 @@ export default class InformationOfPurchasedProduct {
         this.cost.textContent=`${items.cost}`;
 
         this.quantily = document.createElement("input");
+        this.quantily.value=items.quantily
         this.quantily.textContent=items.quantily
 
         this.total = document.createElement("p");

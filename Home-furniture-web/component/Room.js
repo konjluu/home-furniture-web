@@ -8,7 +8,7 @@ export default class Room {
   $buttonBuy;
 
   $productItem;
-  constructor(room, _handleClickProduct,) {
+  constructor(room, _handleClickProduct,_handleClickViewCart) {
     this.$productItem = document.createElement("div");
     this.$productItem.setAttribute(
       "class",
@@ -62,6 +62,9 @@ export default class Room {
       "class",
       "hidden bg-gray-400 hover:shadow-lg text-white font-bold ml-5 mt-5 py-1 px-3 rounded"
     );
+    this.$viewCartInItemsRoom.addEventListener("click",()=>{
+      _handleClickViewCart();
+    });
   }
 //
   pushData=()=>{
